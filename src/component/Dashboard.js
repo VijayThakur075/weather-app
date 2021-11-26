@@ -11,7 +11,7 @@ import { useHistory } from "react-router";
 
 export const Dashboard = () => {
     const dispatch = useDispatch();
-    const history= useHistory();
+    let history = useHistory();
     const selector = useSelector((state) => state.weatherApi.api);
     const setCity = useSelector((state) => state.weatherApi.city);
 
@@ -22,7 +22,8 @@ export const Dashboard = () => {
     }
 
 
-    const showHistory =() =>{
+    const showHistory = (e) => {
+        e.preventDefault()
         history.push('/History')
     }
 
@@ -56,9 +57,9 @@ export const Dashboard = () => {
                         <li>weather temp_max : {data.main.temp_max}</li>
                     </ul>
 
-                </>
+                </>                         
             ))}
-            
+
         </>
     )
 }
